@@ -167,7 +167,7 @@ def main():
     try:
         print("Start Main Loop")
  
-        while MySerial.sercon_read_flag():
+        while True:
             
             if anim_couter > anim_loop_div:     # Loop / Loop_div -> anim_step
                     anim_couter = 0
@@ -179,101 +179,7 @@ def main():
                 myseq.next_state()
                 myseq.button_flag = True
                 
-            
-            MySerial.sercon_read_line()
-            if MySerial.get_ready_flag():       # Zeichenkette empfangen
-                #print(MySerial.get_string())
-                MyDecode.decode_input(str(MySerial.get_string()))
-                #MyDecode.decode_printout()
-                if MyDecode.get_valid_flag() == True:
-                    #print("Valid Command")
-                    if MyDecode.get_cmd_1() == "do":
-                        #print("do")
-                        if MyDecode.get_cmd_2() == "all":
-                            #print("all")
-                            if MyDecode.get_value_1() == 0:
-                                #print("off")
-                                MyWS2812.do_all_off()
-                            if MyDecode.get_value_1() == 1:
-                                #print("on")
-                                MyWS2812.do_all_on()
-                            if MyDecode.get_value_1() == 2:
-                                #print("def")
-                                MyWS2812.do_all_def()
-                        if MyDecode.get_cmd_2() == "obj":
-                            #print("obj")
-                            #print(MyDecode.get_value_1())
-                            #print(segment_map[MyDecode.get_value_1()])
-                            if MyDecode.get_value_1() == 1:
-                                MyWS2812.set_led_obj(0, MyDecode.get_value_2())
-                            
-                            if MyDecode.get_value_1() == 2:
-                                MyWS2812.set_led_obj(1, MyDecode.get_value_2())
-
-                            # ------------------------------------------------------------------
-                            if MyDecode.get_value_1() == 81:
-                                print("Motor 1 -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(0, True)
-                                else:
-                                    MyGPIO.i2c_write(0, False)
-                            
-                            if MyDecode.get_value_1() == 82:
-                                print("Motor 2 -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(1, True)
-                                else:
-                                    MyGPIO.i2c_write(1, False)
-
-                            if MyDecode.get_value_1() == 83:
-                                print("Motor 3 -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(2, True)
-                                else:
-                                    MyGPIO.i2c_write(2, False)
-                                
-                            if MyDecode.get_value_1() == 84:
-                                print("Motor 4 -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(3, True)
-                                else:
-                                    MyGPIO.i2c_write(3, False)
-
-                            if MyDecode.get_value_1() == 85:
-                                print("Motor 5 -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(4, True)
-                                else:
-                                    MyGPIO.i2c_write(4, False)
-
-                            if MyDecode.get_value_1() == 86:
-                                print("Motor 6 -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(5, True)
-                                else:
-                                    MyGPIO.i2c_write(5, False)
-                        
-                            if MyDecode.get_value_1() == 87:
-                                print("Motor -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(6, True)
-                                else:
-                                    MyGPIO.i2c_write(6, False)
-
-                            if MyDecode.get_value_1() == 88:
-                                print("Lampe -> " + MyDecode.get_value_2())
-                                if MyDecode.get_value_2() == "on":
-                                    MyGPIO.i2c_write(7, True)
-                                else:
-                                    MyGPIO.i2c_write(7, False)
-
-                    if MyDecode.get_cmd_1() == "test":
-                        #print("Test")
-                        if MyDecode.get_cmd_2() == "led":
-                            #print("LED")
-                            MyWS2812.test_led(MyDecode.get_value_1(), MyDecode.get_value_2())
-                    
-
+        
             anim_couter = anim_couter + 1
             # Loop-Delay !!!
             time.sleep_ms(10)        # 10ms
