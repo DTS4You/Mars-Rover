@@ -77,6 +77,9 @@ class Ledsegment:
 
     def set_mode(self, mode):
         self.mode = mode
+    
+    def set_direction(self, direction):
+        self.direction = direction
 
     def set_pixel(self, pos, color=None):
         if color:
@@ -216,6 +219,7 @@ def setup_ws2812():
     
     led_obj[0].set_color_on(mg.color_anim_1_on)
     led_obj[0].set_color_half(mg.color_anim_1_half)
+    led_obj[0].set_direction(mg.seg_01_dir)
 
     led_obj[1].set_color_on(mg.color_anim_1_on)
     led_obj[1].set_color_half(mg.color_anim_1_half)
