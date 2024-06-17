@@ -189,19 +189,12 @@ def setup_ws2812():
 
     ledstate = LedState()
     
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 2, "GRB"))
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 3, "GRB"))
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_3, 2, 4, "GRB"))
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_4, 3, 5, "GRB"))
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_5, 4, 6, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 8, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 9, "GRB"))
     
     led_obj.append(Ledsegment(strip_obj[mg.seg_01_strip], mg.seg_01_start, mg.seg_01_count))      #  (01) -> LED Position -> # 01 #
     led_obj.append(Ledsegment(strip_obj[mg.seg_02_strip], mg.seg_02_start, mg.seg_02_count))      #  (02) -> LED Position -> # 02 #
-    led_obj.append(Ledsegment(strip_obj[mg.seg_03_strip], mg.seg_03_start, mg.seg_03_count))      #  (03) -> LED Position -> # 03 #
-    led_obj.append(Ledsegment(strip_obj[mg.seg_04_strip], mg.seg_04_start, mg.seg_04_count))      #  (04) -> LED Position -> # 04 #
-    led_obj.append(Ledsegment(strip_obj[mg.seg_05_strip], mg.seg_05_start, mg.seg_05_count))      #  (05) -> LED Position -> # 05 #
-    led_obj.append(Ledsegment(strip_obj[mg.seg_06_strip], mg.seg_06_start, mg.seg_06_count))      #  (06) -> LED Position -> # 06 #
-    
+        
     for strips in strip_obj:
         strips.brightness(255)
    
@@ -229,22 +222,6 @@ def setup_ws2812():
     led_obj[1].set_color_on(mg.color_anim_1_on)
     led_obj[1].set_color_half(mg.color_anim_1_half)
     led_obj[1].set_mode(False)
-
-    led_obj[2].set_color_def(mg.color_anim_3_def)
-    led_obj[2].set_color_on(mg.color_anim_3_on)
-    led_obj[2].set_color_half(mg.color_anim_3_half)
-
-    led_obj[3].set_color_def(mg.color_anim_3_def)
-    led_obj[3].set_color_on(mg.color_anim_3_on)
-    led_obj[3].set_color_half(mg.color_anim_3_half)
-
-    led_obj[4].set_color_def(mg.color_anim_2_def)
-    led_obj[4].set_color_on(mg.color_anim_2_on)
-    led_obj[4].set_color_half(mg.color_anim_2_half)
-
-    led_obj[5].set_color_def(mg.color_anim_2_def)
-    led_obj[5].set_color_on(mg.color_anim_2_on)
-    led_obj[5].set_color_half(mg.color_anim_2_half)
     
     # Blinken aus
     do_all_no_blink()
