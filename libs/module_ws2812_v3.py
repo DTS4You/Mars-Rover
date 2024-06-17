@@ -423,13 +423,14 @@ def main():
         print("WS2812 -> All Def")
         do_all_def()
 
-        print("WS2812 -> Anim Test")
-        #for i in range(0,80):
-        #    if not get_anim_end(0):
-        #        do_anim_step(0)
-        #    print(get_anim_pos(0))
-        #    time.sleep(0.2)
+        time.sleep(1)
 
+        print("WS2812 -> Blink Test")
+        do_blink_test()
+
+        time.sleep(1)
+        
+        print("WS2812 -> Anim Test")
         while(not get_anim_end(0)):
             do_anim_step(0)
             print(get_anim_pos(0))

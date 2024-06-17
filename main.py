@@ -7,7 +7,7 @@ from machine import Pin, Timer                              # type: ignore
 from libs.module_init import Global_Module as MyModule
 import time                                                 # type: ignore
 
-anim_loop_div = 2
+anim_loop_div = 4
 
 state_0_flag = False
 
@@ -19,7 +19,12 @@ class AnimSeq:
         self.state_flag = False
         self.button_flag = False
         self.wait_tick = 0
-        self.wait_count = 50
+        self.wait_count = 20
+        self.anim_count = 0
+        self.anim_loop = 10                 # Wie oft soll die Animation abgespielt werden
+        self.blink_count = 0
+        self.blink_loop = 10
+        self.blink_state = False
     
     def reset(self):
         self.pos = 0
@@ -71,7 +76,7 @@ def anim_step():
     if myseq.get_state() == 3:
         if myseq.state_flag == False:
             print("State -> 3")
-            MyWS2812.set_anim_pos(0, 3)
+            MyWS2812.set_anim_pos(0, 0)
             myseq.state_flag = True
         myseq.wait()
     
@@ -80,25 +85,49 @@ def anim_step():
             print("State -> 4")
             MyWS2812.do_all_off()
             #MyWS2812.do_show_def(1)
+            MyWS2812.led_obj[1].show_off()
+            MyWS2812.led_obj[1].show_stripe()
+            MyWS2812.set_anim_pos(0, 0)
             myseq.state_flag = True
-        if not MyWS2812.get_anim_end(0):
-            MyWS2812.do_anim_step(0)
         else:
-            MyWS2812.set_anim_end(0)
             myseq.next_state()
     
     if myseq.get_state() == 5:
         if myseq.state_flag == False:
             print("State -> 5")
-            MyWS2812.do_all_off()
+            #MyWS2812.do_all_off()
+            #MyWS2812.do_show_def(1)
+            MyWS2812.led_obj[1].show_off()
+            MyWS2812.led_obj[1].show_stripe()
+            MyWS2812.set_anim_pos(0, 0)
             myseq.state_flag = True
         else:
-            myseq.next_state()
+            if myseq.blink_count < myseq.blink_loop:
+                myseq.blink_count = myseq.blink_count + 1
+            else:
+                myseq.blink_count = 0
+                myseq.blink_state = not myseq.blink_state
+                if myseq.blink_state:
+                    MyWS2812.led_obj[1].show_blink()
+                    MyWS2812.led_obj[1].show_stripe()
+                else:
+                    MyWS2812.led_obj[1].show_def()
+                    MyWS2812.led_obj[1].show_stripe()
+
+            if myseq.anim_count < myseq.anim_loop:
+                if not MyWS2812.get_anim_end(0):
+                    MyWS2812.do_anim_step(0)
+                else:
+                    MyWS2812.set_anim_end(0)
+                    myseq.anim_count = myseq.anim_count + 1  
+            else:
+                myseq.anim_count = 0
+                myseq.next_state()
  
     if myseq.get_state() == 6:
         if myseq.state_flag == False:
             print("State -> 6")
-            #MyWS2812.do_all_def()
+            MyWS2812.do_all_def()
             myseq.state_flag = True
         else:
             myseq.next_state()
