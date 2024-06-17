@@ -16,10 +16,6 @@ class Global_WS2812:
 
     numpix_1            = 32            # Anz. LEDs im 1. Stripe -> Lauflicht Strecke
     numpix_2            = 8             # Anz. LEDs im 2. Stripe -> Blink Ring
-    #numpix_3           = 196           # Anz. LEDs im 3. Stripe -> Umlaufbahn innen aussen
-    #numpix_4           = 196           # Anz. LEDs im 4. Stripe -> Umlaufbahn aussen innen
-    #numpix_5           = 196           # Anz. LEDs im 5. Stripe -> Umlaufbahn aussen aussen
-    #numpix_6           = 8             # Anz. LEDs im 6. Stripe -> Splitter-Strahl
 
     seg_01_strip        = 0             #  1. Seg -> Stripe      # Lauflicht Strecke
     seg_01_start        = 0             #  1. Seg -> Start

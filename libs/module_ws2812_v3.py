@@ -189,8 +189,8 @@ def setup_ws2812():
 
     ledstate = LedState()
     
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 8, "GRB"))
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 9, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 4, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 5, "GRB"))
     
     led_obj.append(Ledsegment(strip_obj[mg.seg_01_strip], mg.seg_01_start, mg.seg_01_count))      #  (01) -> LED Position -> # 01 #
     led_obj.append(Ledsegment(strip_obj[mg.seg_02_strip], mg.seg_02_start, mg.seg_02_count))      #  (02) -> LED Position -> # 02 #
@@ -214,11 +214,9 @@ def setup_ws2812():
         leds.set_color_blink_off(mg.color_blink_off)
         leds.set_color_blink_on(mg.color_blink_on)
     
-    led_obj[0].set_color_def(mg.color_anim_1_def)
     led_obj[0].set_color_on(mg.color_anim_1_on)
     led_obj[0].set_color_half(mg.color_anim_1_half)
 
-    led_obj[1].set_color_def(mg.color_off)
     led_obj[1].set_color_on(mg.color_anim_1_on)
     led_obj[1].set_color_half(mg.color_anim_1_half)
     led_obj[1].set_mode(False)
@@ -415,18 +413,11 @@ def main():
         print("WS2812 -> Setup")
         setup_ws2812()
         
-        #print("WS2812 -> Run self test")
-        #self_test()
+        print("WS2812 -> Run self test")
+        self_test()
     
-        #print("WS2812 -> Start -> Stop")
-        #for i in range (0,4):
-        #    start_led = 0
-        #    stop_led = led_obj[i].count - 1
-        #    print("Start -> ", start_led)
-        #    print("Stop  -> ", stop_led)
-        #    led_obj[i].set_pixel(start_led, (0,60,0))
-        #    led_obj[i].set_pixel(stop_led, (60,0,0))
-        #do_refresh()
+        print("WS2812 -> All Def")
+        do_all_def()
 
         print("WS2812 -> Anim Test")
         #for i in range(0,80):
