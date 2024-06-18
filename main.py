@@ -21,7 +21,7 @@ class AnimSeq:
         self.wait_tick = 0
         self.wait_count = 20
         self.anim_count = 0
-        self.anim_loop = 10                 # Wie oft soll die Animation abgespielt werden
+        self.anim_loop = 16                 # Wie oft soll die Animation abgespielt werden
         self.blink_count = 0
         self.blink_loop = 10
         self.blink_state = False
@@ -108,7 +108,7 @@ def anim_step():
                 myseq.blink_count = 0
                 myseq.blink_state = not myseq.blink_state
                 if myseq.blink_state:
-                    MyWS2812.led_obj[1].show_blink()
+                    MyWS2812.led_obj[1].show_on()
                     MyWS2812.led_obj[1].show_stripe()
                 else:
                     MyWS2812.led_obj[1].show_def()
