@@ -1,7 +1,8 @@
 ######################################################
 ### Main-Program                                   ###
-### Projekt: Mars-Rover                            ###
-### Version: 1.00                                  ###
+### Projekt : Mars-Rover                           ###
+### Version : 1.01                                 ###
+### Datum   : 22.08.2024                           ###
 ######################################################
 from machine import Pin, Timer                              # type: ignore
 from libs.module_init import Global_Module as MyModule
