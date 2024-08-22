@@ -20,11 +20,12 @@ class Global_WS2812:
     seg_01_strip        = 0             #  1. Seg -> Stripe      # Lauflicht Strecke
     seg_01_start        = 0             #  1. Seg -> Start
     seg_01_count        = 32            #  1. Seg -> Anzahl
-    seg_01_dir          = True
+    seg_01_dir          = True          #  1. Seg -> Richtung
     
     seg_02_strip        = 1             #  2. Seg -> Stripe      # Blink Ring
     seg_02_start        = 0             #  2. Seg -> Start
     seg_02_count        = 8             #  2. Seg -> Anzahl
+    seg_02_dir          = False         #  2. Seg -> Richtung
 
 # -----------------------------------------------------------------------------
     #                        R   G   B
