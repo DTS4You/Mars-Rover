@@ -98,11 +98,23 @@ def anim_step():
             #MyWS2812.do_all_off()
    
             if myseq.anim_count < myseq.anim_loop:
-                if not MyWS2812.get_anim_end(1):
-                    MyWS2812.do_anim_step(1)
+                
+                if myseq.anim_count % 2:
+                    if not MyWS2812.get_anim_end(0):
+                        MyWS2812.do_anim_step(0)
+                    else:
+                        MyWS2812.set_anim_end(0)
+                        MyWS2812.set_anim_pos(0, 0)
+                        MyWS2812.do_all_def()
+                        myseq.anim_count = myseq.anim_count + 1  
                 else:
-                    MyWS2812.set_anim_end(1)
-                    myseq.anim_count = myseq.anim_count + 1  
+                    if not MyWS2812.get_anim_end(1):
+                        MyWS2812.do_anim_step(1)
+                    else:
+                        MyWS2812.set_anim_end(1)
+                        MyWS2812.set_anim_pos(1, 0)
+                        MyWS2812.do_all_def()
+                        myseq.anim_count = myseq.anim_count + 1  
             else:
                 myseq.anim_count = 0
                 myseq.next_state()
