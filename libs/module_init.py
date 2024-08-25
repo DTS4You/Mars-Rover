@@ -42,9 +42,9 @@ class Global_WS2812:
     color_anim_1_on     = (255, 20, 20)
     color_anim_1_half   = (100,  5,  5)
     
-    color_anim_2_def    = (  0,  2,  0)
-    color_anim_2_on     = (  0,200,  0)
-    color_anim_2_half   = (  0, 50,  0)
+    color_anim_2_def    = (  0,  0,  2)
+    color_anim_2_on     = (255, 20, 20)
+    color_anim_2_half   = (100,  5,  5)
 
     color_anim_3_def    = (  2,  0,  0)
     color_anim_3_on     = (200,  0,  0)
