@@ -3,6 +3,8 @@
 # ### V 1.01
 # #############################################################################
 
+# Lauflicht -> 24 LEDs
+# Kreisel   -> 24 LEDs 
 
 class Global_Module:
     
@@ -15,7 +17,7 @@ class Global_Module:
 class Global_WS2812:
 
     numpix_1            = 32            # Anz. LEDs im 1. Stripe -> Lauflicht Strecke
-    numpix_2            = 8             # Anz. LEDs im 2. Stripe -> Blink Ring
+    numpix_2            = 32            # Anz. LEDs im 2. Stripe -> Blink Ring
 
     seg_01_strip        = 0             #  1. Seg -> Stripe      # Lauflicht Strecke
     seg_01_start        = 0             #  1. Seg -> Start

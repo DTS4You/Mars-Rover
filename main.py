@@ -212,8 +212,8 @@ if __name__ == "__main__":
         #print("WS2812 -> Setup")
         MyWS2812.setup_ws2812()
         ### Test ###
-        #print("WS2812 -> Run self test")
-        #MyWS2812.self_test()
+        print("WS2812 -> Run self test")
+        MyWS2812.self_test()
         #print("WS2812 -> Blink Test")
         #MyWS2812.do_blink_test()
         #print("WS2812 -> Dot-Test")

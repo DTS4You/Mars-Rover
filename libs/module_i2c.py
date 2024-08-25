@@ -92,7 +92,7 @@ def main():
     try:
         print("Start")
         while(True):
-            gpio.get_button()
+            print(gpio.get_input(8))
             time.sleep(0.02)  # 20ms 
             #print("RUN")
     except KeyboardInterrupt:
