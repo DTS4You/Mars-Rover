@@ -26,7 +26,7 @@ class Global_WS2812:
     
     seg_02_strip        = 1             #  2. Seg -> Stripe      # Blink Ring
     seg_02_start        = 0             #  2. Seg -> Start
-    seg_02_count        = 8             #  2. Seg -> Anzahl
+    seg_02_count        = 32            #  2. Seg -> Anzahl
     seg_02_dir          = False         #  2. Seg -> Richtung
 
 # -----------------------------------------------------------------------------

@@ -86,8 +86,8 @@ def anim_step():
             print("State -> 4")
             MyWS2812.do_all_off()
             #MyWS2812.do_show_def(1)
-            MyWS2812.led_obj[1].show_off()
-            MyWS2812.led_obj[1].show_stripe()
+            #MyWS2812.led_obj[1].show_off()
+            #MyWS2812.led_obj[1].show_stripe()
             MyWS2812.set_anim_pos(0, 0)
             myseq.state_flag = True
         else:
@@ -98,8 +98,8 @@ def anim_step():
             print("State -> 5")
             #MyWS2812.do_all_off()
             #MyWS2812.do_show_def(1)
-            MyWS2812.led_obj[1].show_off()
-            MyWS2812.led_obj[1].show_stripe()
+            #MyWS2812.led_obj[1].show_off()
+            #MyWS2812.led_obj[1].show_stripe()
             MyWS2812.set_anim_pos(0, 0)
             myseq.state_flag = True
         else:
