@@ -17,15 +17,15 @@ class AnimSeq:
         self.pos = 0
         self.max = 7
         self.end = False
-        self.state_flag = False
-        self.button_flag = False
-        self.wait_tick = 0
-        self.wait_count = 20
-        self.anim_count = 0
-        self.anim_loop = 16                 # Wie oft soll die Animation abgespielt werden
-        self.blink_count = 0
-        self.blink_loop = 10
-        self.blink_state = False
+        self.state_flag     = False
+        self.button_flag    = False
+        self.wait_tick      = 0
+        self.wait_count     = 20
+        self.anim_count     = 0
+        self.anim_loop      = 20                 # Wie oft soll die Animation abgespielt werden
+        self.blink_count    = 0
+        self.blink_loop     = 10
+        self.blink_state    = False
     
     def reset(self):
         self.pos = 0
